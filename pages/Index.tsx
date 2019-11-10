@@ -1,9 +1,21 @@
 import React from "react";
-
-export default class Index extends React.Component{
-    render(){
+import Link from "next/link";
+export default class Index extends React.Component {
+    render() {
         return (
-            <h1>Hola mundo</h1>
+
+            <div>
+
+                <h1>Hola mundo</h1>
+                <Link href="/login">
+                    <a>Login</a>
+                </Link>
+
+                <Link href="/register">
+                    <a>Register</a>
+                </Link>
+            </div>
+
         )
     }
 }
