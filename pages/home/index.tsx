@@ -2,28 +2,25 @@ import React, { Fragment } from "react";
 import Router, { withRouter } from "next/router";
 import userService from "../../src/services/user-service";
 
-
-type ga = {
-    validate: boolean,
-
-}
-export default class Home extends React.Component<{}, ga> {
+import Nav from "../../components/nav/Nav";
+import Layout from "../../components/layout/Layout";
+import Link from "next/link";
 
 
-    state: Readonly<ga> = {
-        validate: false
-    }
 
-  
+export default class Home extends React.Component<{}, {}> {
+
+
+
 
     componentDidMount() {
-        
-        
+
+
 
         if (localStorage.getItem("token") != null) {
             userService.updateCredentials();
             this.setState({ validate: true });
-            
+
         }
         else {
             this.setState({ validate: false });
@@ -36,14 +33,12 @@ export default class Home extends React.Component<{}, ga> {
 
     render() {
         return (
-            <Fragment>
-                {this.state.validate ?
-                    <h1>Hola este este  home</h1>
-                    
 
-                    
-
-
+            <Layout>
+            <div>
+                <h2>Hola soy le home</h2>
+            </div>
+            </Layout>
 
 
 
@@ -55,10 +50,12 @@ export default class Home extends React.Component<{}, ga> {
 
 
 
-                    : ''
-                }
 
-            </Fragment>
+
+
+
+
+
         )
     }
 }   

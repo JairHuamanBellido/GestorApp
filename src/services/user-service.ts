@@ -3,8 +3,7 @@ import { uri } from "../uri";
 class UserService {
   ruc: string;
 
-  constructor() {
-  }
+  constructor() {}
 
   validateCredentials = async (username, password) => {
     return await axios({
@@ -25,11 +24,18 @@ class UserService {
   };
 
   updateCredentials = async () => {
-	  this.ruc = localStorage.getItem("ruc");
+    this.ruc = localStorage.getItem("ruc");
   };
 
-  getRuc = ()=>{
-	  return localStorage.getItem("ruc");
+  getRuc = () => {
+    return localStorage.getItem("ruc");
+  };
+
+
+  register = async(user:any)=>{
+    return await axios({
+      method:"POST"
+    })
   }
 }
 export default new UserService();

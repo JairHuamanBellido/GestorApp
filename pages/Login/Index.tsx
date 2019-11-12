@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { uri } from "../../src/uri";
 import Router from "next/router";
 import userService from "../../src/services/user-service";
+import "./Login.scss";
+
 type UserCredentials = {
     username: string,
     password: string,
@@ -20,7 +21,12 @@ export default class Login extends React.Component<{}, UserCredentials> {
 
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        const name = e.target.name;
+        const value = e.target.value
+        this.setState(rest => ({
+            ...rest,
+            [name]: value
+        }))
     }
 
     validateCredentials = async () => {
@@ -39,38 +45,59 @@ export default class Login extends React.Component<{}, UserCredentials> {
 
         return (
             <Fragment>
-                <h1>Hola soy el w</h1>
-                <Link href="/register">
-                    <button>Register</button>
-                </Link>
-                <div className="field-login">
-                    <label htmlFor="username">Usuario</label>
-                    <input type="text"
-                        id="username"
-                        name="username"
-                        value={this.state.username}
-                        placeholder="Ingrese su usuario"
-                        onChange={this.handleChange} />
+                <div className="login-container">
+
+
+                    <header>
+                        <img src="/assets/logo.png" width="96" height="96" alt="" />
+                    </header>
+                    <div className="login-main">
+                        <div className="login-form">
+
+                            <h1>Login</h1>
+
+                            <div className="field-login">
+                                <label htmlFor="username">Usuario</label>
+                                <input type="text"
+                                    id="username"
+                                    name="username"
+                                    value={this.state.username}
+                                    placeholder="Ingrese su usuario"
+                                    onChange={this.handleChange} />
+                            </div>
+
+                            <div className="field-login">
+                                <label htmlFor="password">Contraseña</label>
+                                <input type="password"
+                                    id="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    placeholder="Ingrese su contraseña"
+                                    onChange={this.handleChange} />
+                            </div>
+                            <div className="btn-group-login">
+                                <button onClick={this.validateCredentials}>Ingresar</button>
+                            </div>
+                            {this.state.error ?
+                                <p>Credenciales invalidas</p> : ''
+
+                            }
+
+
+                            <div className="register-direction">
+                                <p>Aún no te has registrado?</p>
+                                <Link href="/register">
+                                    <button>Registrarme</button>
+                                </Link>
+                            </div>
+
+                        </div>
+                        <div className="register-view">
+
+                        </div>
+                    </div>
+
                 </div>
-
-                <div className="field-login">
-                    <label htmlFor="password">Contraseña</label>
-                    <input type="password"
-                        id="password"
-                        name="password"
-                        value={this.state.password}
-                        placeholder="Ingrese su contraseña"
-                        onChange={this.handleChange} />
-                </div>
-                <div className="btn-group-login">
-                    <button onClick={this.validateCredentials}>Ingresar</button>
-                </div>
-                {this.state.error ?
-                    <p>Credenciales invalidas</p> : ''
-
-                }
-
-
             </Fragment>
         )
     }
