@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import "./Nav.scss";
 
 export default class Nav extends React.Component {
 
@@ -11,14 +11,14 @@ export default class Nav extends React.Component {
             <div>
                 <header>
                     <nav>
-                        <Link href="/">
+                        <Link href="/home">
                             <a>Home</a>
-                        </Link>{' '}
-                        |{' '}
+                        </Link>
+                        
                         <Link href="/home/nuevaboleta">
                             <a>Recibos por honorarios</a>
-                        </Link>{' '}
-                        |{' '}
+                        </Link>
+                        
                     </nav>
                 </header>
             </div>

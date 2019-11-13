@@ -1,11 +1,7 @@
 import React, { useLayoutEffect } from "react";
 
-
-
-import axios from "axios";
-import { uri } from "../../src/uri";
-import Router from "next/router";
 import "./Register.scss";
+import userService from "../../src/services/user-service";
 // Sate
 type UserRegister = {
     ruc: string,
@@ -38,15 +34,8 @@ export default class Register extends React.Component<{}, UserRegister> {
     }
 
     submitForm = async () => {
-        await axios({
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            url: `${uri}/register`,
-            data: this.state
-        }).then(() => {
-            Router.push('/login');
-        })
-
+        await userService.register(this.state);
+        
 
 
 

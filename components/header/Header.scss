@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.header{
+    width: 100%;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.avatar img{
+    margin-right: 1em   ;
+}

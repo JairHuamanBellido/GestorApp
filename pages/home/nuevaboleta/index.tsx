@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import userService from "../../../src/services/user-service";
 import billService from "../../../src/services/bill-service";
 import Layout from "../../../components/layout/Layout";
+import sampleAppContext, { UserContextProvider } from "../../../components/userProvider/UserContext";
 
-
+import "./nuevaboleta.scss";
 
 type BillDto = {
 
@@ -56,83 +57,87 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
     }
     render() {
         return (
-            <Layout>
-                <Fragment>
-                    <h1>
-                        estas agregando una nueva boleta
+
+            <Fragment>
+                <UserContextProvider value={sampleAppContext}>
+                    <Layout>
+                        <div className="nuevaboleta-form">
+                            <h1>
+                                estas agregando una nueva boleta
             </h1>
-                    <div className="field-bill">
-                        <label >Ruc de la empresa</label>
-                        <input type="string"
-                            id="companyRuc"
-                            name="companyRuc"
-                            value={this.state.companyRuc}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="field-bill">
-                        <label >Fecha de emision</label>
-                        <input type="date"
-                            id="releaseDate"
-                            name="releaseDate"
-                            value={this.state.releaseDate}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="field-bill">
-                        <label >Fecha de pago</label>
-                        <input type="date"
-                            id="payDay"
-                            name="payDay"
-                            value={this.state.payDay}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="field-bill">
-                        <label >Monto a recibir</label>
-                        <input type="number"
-                            id="totalAmount"
-                            name="totalAmount"
-                            value={this.state.totalAmount}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="field-bill">
-                        <label >Tasa efectiva</label>
-                        <input type="number"
-                            id="tax"
-                            name="tax"
-                            value={this.state.tax}
-                            onChange={this.handleChange}
-                        />
-                        %
-                </div>
-                    <div className="field-bill">
-                        <label >Fecha de descuento</label>
-                        <input type="date"
-                            id="discountDate"
-                            name="discountDate"
-                            value={this.state.discountDate}
-                            onChange={this.handleChange}
-                        />
+                            <div className="field-bill">
+                                <label >Ruc de la empresa</label>
+                                <input type="string"
+                                    id="companyRuc"
+                                    name="companyRuc"
+                                    value={this.state.companyRuc}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="field-bill">
+                                <label >Fecha de emision</label>
+                                <input type="date"
+                                    id="releaseDate"
+                                    name="releaseDate"
+                                    value={this.state.releaseDate}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="field-bill">
+                                <label >Fecha de pago</label>
+                                <input type="date"
+                                    id="payDay"
+                                    name="payDay"
+                                    value={this.state.payDay}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="field-bill">
+                                <label >Monto a recibir</label>
+                                <input type="number"
+                                    id="totalAmount"
+                                    name="totalAmount"
+                                    value={this.state.totalAmount}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="field-bill">
+                                <label >Tasa efectiva</label>
+                                <input type="number"
+                                    id="tax"
+                                    name="tax"
+                                    value={this.state.tax}
+                                    onChange={this.handleChange}
+                                />
+                                %
+                            </div>
+                            <div className="field-bill">
+                                <label >Fecha de descuento</label>
+                                <input type="date"
+                                    id="discountDate"
+                                    name="discountDate"
+                                    value={this.state.discountDate}
+                                    onChange={this.handleChange}
+                                />
 
-                    </div>
+                            </div>
 
-                    <div className="field-bill">
-                        <label >Concepto</label>
-                        <textarea
-                            id="concept"
-                            name="concept"
-                            value={this.state.concept}
-                            onChange={this.handleChange}
-                        />
+                            <div className="field-bill">
+                                <label >Concepto</label>
+                                <textarea
+                                    id="concept"
+                                    name="concept"
+                                    value={this.state.concept}
+                                    onChange={this.handleChange}
+                                />
 
-                    </div>
+                            </div>
 
-                    <button className="btn" onClick={this.submit}>Submit</button>
-
-                </Fragment>
-            </Layout>
+                            <button className="btn" onClick={this.submit}>Submit</button>
+                        </div>
+                    </Layout>
+                </UserContextProvider>
+            </Fragment>
 
         )
     }

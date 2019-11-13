@@ -19,7 +19,9 @@ export default class Login extends React.Component<{}, UserCredentials> {
     }
 
 
-
+    static async getInitialProps({query}) {
+        return {name:query}
+      }
     handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value
@@ -34,6 +36,7 @@ export default class Login extends React.Component<{}, UserCredentials> {
         const confirmation = await (userService.validateCredentials(this.state.username, this.state.password))
         if (confirmation) {
             this.setState({ error: false });
+            
             Router.push("/home");
         }
         else {
