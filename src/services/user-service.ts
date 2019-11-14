@@ -1,6 +1,6 @@
 import axios from "axios";
 import { uri } from "../uri";
-import { updateName } from "../../components/userProvider/UserContext";
+import {  updateUser } from "../../components/userProvider/UserContext";
 import Router from 'next/router'
 class UserService {
   ruc: string;
@@ -16,7 +16,7 @@ class UserService {
     })
       .then(res => {
         let fullName =  res.data.user.name + " "+ res.data.user.lastName;
-        updateName(fullName);
+        updateUser(res.data.user);
         console.log(res);
         this.ruc = res.data.user.ruc;
         localStorage.setItem("token", res.data.access_token);
@@ -48,5 +48,8 @@ class UserService {
       Router.push('/login');
     })
   }
+
+
+  
 }
 export default new UserService();

@@ -5,6 +5,7 @@ import Layout from "../../../components/layout/Layout";
 import sampleAppContext, { UserContextProvider } from "../../../components/userProvider/UserContext";
 
 import "./nuevaboleta.scss";
+import Bills from "../../../components/Bill/Bills";
 
 type BillDto = {
 
@@ -64,7 +65,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
                         <div className="nuevaboleta-form">
                             <h1>
                                 estas agregando una nueva boleta
-            </h1>
+                            </h1>
                             <div className="field-bill">
                                 <label >Ruc de la empresa</label>
                                 <input type="string"
@@ -135,6 +136,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
 
                             <button className="btn" onClick={this.submit}>Submit</button>
                         </div>
+                      
                     </Layout>
                 </UserContextProvider>
             </Fragment>

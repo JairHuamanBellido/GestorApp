@@ -15,7 +15,7 @@ export default class Nav extends React.Component {
                             <a>Home</a>
                         </Link>
                         
-                        <Link href="/home/nuevaboleta">
+                        <Link href="/home/recibos">
                             <a>Recibos por honorarios</a>
                         </Link>
                         

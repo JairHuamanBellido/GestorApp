@@ -4,9 +4,9 @@ import userService from "../../src/services/user-service";
 
 import Nav from "../../components/nav/Nav";
 import Layout from "../../components/layout/Layout";
-import Link from "next/link";
-import Header from "../../components/header/header";
-import sampleAppContext, { UserContextProvider, updateName } from "../../components/userProvider/UserContext";
+
+import sampleAppContext, { UserContextProvider  } from "../../components/userProvider/UserContext";
+import billService from "../../src/services/bill-service";
 
 
 
@@ -15,12 +15,10 @@ export default class Home extends React.Component<{}, {}> {
 
 
 
-    componentDidMount() {
+    async componentDidMount() {
 
 
-        updateName(localStorage.getItem("name"));
         if (localStorage.getItem("token") != null) {
-            userService.updateCredentials();
             this.setState({ validate: true });
 
         }
@@ -28,6 +26,8 @@ export default class Home extends React.Component<{}, {}> {
             this.setState({ validate: false });
             Router.push("/login");
         }
+
+        await billService.getBills();
 
 
     }
