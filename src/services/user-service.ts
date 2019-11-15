@@ -1,7 +1,7 @@
 import axios from "axios";
 import { uri } from "../uri";
-import {  updateUser } from "../../components/userProvider/UserContext";
-import Router from 'next/router'
+import { updateUser } from "../../components/userProvider/UserContext";
+import Router from "next/router";
 class UserService {
   ruc: string;
 
@@ -15,13 +15,14 @@ class UserService {
       data: { username: username, password: password }
     })
       .then(res => {
-        let fullName =  res.data.user.name + " "+ res.data.user.lastName;
+        let fullName = res.data.user.name + " " + res.data.user.lastName;
         updateUser(res.data.user);
-        console.log(res);
         this.ruc = res.data.user.ruc;
         localStorage.setItem("token", res.data.access_token);
         localStorage.setItem("ruc", res.data.user.ruc);
         localStorage.setItem("name", fullName);
+        localStorage.setItem("username", res.data.user.username);
+        localStorage.setItem("password", res.data.user.password);
         return true;
       })
       .catch(e => {
@@ -37,19 +38,15 @@ class UserService {
     return localStorage.getItem("ruc");
   };
 
-
-  register = async(user:any)=>{
+  register = async (user: any) => {
     return await axios({
-      method:"POST",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       url: `${uri}/register`,
-      data:user
-    }).then( (data)=>{
-      Router.push('/login');
-    })
-  }
-
-
-  
+      data: user
+    }).then(data => {
+      Router.push("/login");
+    });
+  };
 }
 export default new UserService();

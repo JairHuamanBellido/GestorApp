@@ -1,6 +1,6 @@
 import axios from "axios";
 import { uri } from "../uri";
-import { updateBills } from "../../components/userProvider/UserContext";
+import { updateBills, UserContextConsume } from "../../components/userProvider/UserContext";
 class BillService {
   create = async (bill: any) => {
     return await axios({
@@ -29,6 +29,12 @@ class BillService {
       console.log(data);
     });
   };
+
+
+  getTotalAmmout = async ()=>{
+    
+  }
+  
 }
 
 export default new BillService();

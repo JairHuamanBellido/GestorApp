@@ -5,8 +5,9 @@ import userService from "../../src/services/user-service";
 import Nav from "../../components/nav/Nav";
 import Layout from "../../components/layout/Layout";
 
-import sampleAppContext, { UserContextProvider  } from "../../components/userProvider/UserContext";
+import sampleAppContext, { UserContextProvider, updateUser, totalAmmout  } from "../../components/userProvider/UserContext";
 import billService from "../../src/services/bill-service";
+import HomeView from "../../components/Home/Home";
 
 
 
@@ -19,7 +20,15 @@ export default class Home extends React.Component<{}, {}> {
 
 
         if (localStorage.getItem("token") != null) {
-            this.setState({ validate: true });
+
+
+            
+            this.setState({ validate: true });            
+            
+
+            
+            
+            
 
         }
         else {
@@ -27,21 +36,20 @@ export default class Home extends React.Component<{}, {}> {
             Router.push("/login");
         }
 
-        await billService.getBills();
 
 
     }
+ 
 
 
 
     render() {
+
         return (
             <Fragment>
                 <UserContextProvider value={sampleAppContext}>
                     <Layout>
-                        <div>
-                            <h2>Hola soy le home</h2>
-                        </div>
+                        <HomeView></HomeView>
                     </Layout>
                 </UserContextProvider>
             </Fragment>

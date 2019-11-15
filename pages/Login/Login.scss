@@ -1,4 +1,15 @@
 
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+
 .login-container{
     padding: 2em;
 }
@@ -55,4 +66,43 @@
     border: none;
     font-size: 22px;
     margin-left: .5em;
+}
+
+.login-main{
+    display: flex;
+
+     & > div{
+         width: 50%;
+     }
+
+     & .register-view{
+         padding-left: 5em;
+     }
+}
+
+.login-main .register-view{
+    & .info{
+        margin: 1em 0;
+    }
+    & .marketing{
+        display: flex;
+        flex-direction: column; 
+        margin-top: 3em;
+        & .item{
+            display: flex;
+            align-items: center;
+            margin: 1em 0;
+            & img{
+                margin-right: 1em;
+            }
+        }
+    }
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 12em;
 }

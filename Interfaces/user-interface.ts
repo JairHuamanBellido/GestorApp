@@ -1,4 +1,5 @@
 import { Bill } from "./bill-interface";
+import { Company } from "./company-interface";
 
 export interface User {
     ruc?: string;
@@ -15,4 +16,6 @@ export interface User {
     companyName?:string;
 
     bills? :Bill[];
+    companies?:Company[];
+    totalGain?:number
 }

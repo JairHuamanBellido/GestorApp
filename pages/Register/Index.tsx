@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 
 import "./Register.scss";
 import userService from "../../src/services/user-service";
+import Link from "next/link";
 // Sate
 type UserRegister = {
     ruc: string,
@@ -62,7 +63,9 @@ export default class Register extends React.Component<{}, UserRegister> {
 
                 <div className="header">
                     <div className="log">
+                        <Link href="/login">
                         <img src="/assets/logo-white.png" width="96" height="96" alt="" />
+                        </Link>
                     </div>
                     <div className="title">
                         <h1>Registro</h1>

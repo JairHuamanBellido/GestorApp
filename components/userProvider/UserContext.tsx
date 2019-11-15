@@ -18,7 +18,9 @@ let currentUser: User = {
     district: '',
     companyName:'',
 
-    bills : []
+    bills : [],
+    companies:[],
+    totalGain: undefined
 };
 
 export const updateUser = (user:User) => {
@@ -29,12 +31,24 @@ export const updateUser = (user:User) => {
     currentUser.ruc =  user.ruc;
     currentUser.bills=  user.bills;
 
+    currentUser.totalGain =  totalAmmout();
+
     
 }
 
 
 export const updateBills = (bill:Bill) =>{
     currentUser.bills.push(bill);
+    
+}
+
+export const totalAmmout =  ()=>{
+    
+    let a = 0;
+    currentUser.bills.forEach ((b)=>{
+        a = a + b.totalAmmountFinal
+    })
+    return parseFloat(a.toFixed(2));
 }
 
 
