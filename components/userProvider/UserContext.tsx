@@ -30,8 +30,9 @@ export const updateUser = (user:User) => {
     currentUser.lastName = user.lastName;
     currentUser.ruc =  user.ruc;
     currentUser.bills=  user.bills;
-
+    currentUser.companies  = user.companies;
     currentUser.totalGain =  totalAmmout();
+    console.log(currentUser.bills[0].company);
 
     
 }

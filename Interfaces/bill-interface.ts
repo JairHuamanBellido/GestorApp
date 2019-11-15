@@ -1,3 +1,5 @@
+import { Company } from "./company-interface";
+
 export interface Bill {
   readonly userRuc: string;
   readonly companyRuc: string;
@@ -15,4 +17,5 @@ export interface Bill {
   readonly retention: number;
   readonly discount: number;
   readonly taxPeriod: string;
+  readonly company:Company;
 }

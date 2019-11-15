@@ -3,7 +3,7 @@ import userService from "../../../src/services/user-service";
 import billService from "../../../src/services/bill-service";
 import Layout from "../../../components/layout/Layout";
 import sampleAppContext, { UserContextProvider } from "../../../components/userProvider/UserContext";
-
+import Route from 'next/router'
 import "./nuevaboleta.scss";
 
 type BillDto = {
@@ -59,7 +59,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
     }
 
 
-    submit = () => {
+     submit = async() => {
 
 
         billService.create(this.state);
@@ -78,6 +78,15 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
             addressCompany: "",
             districtCompany: ""
         }
+        let username = localStorage.getItem("username");
+        let password = localStorage.getItem("password");
+        await userService.validateCredentials(username,password).then ( data=>{
+
+            
+
+            Route.push('/home/recibos');
+        })
+
     }
     render() {
         return (
@@ -109,6 +118,16 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
                                             value={this.state.payDay}
                                             onChange={this.handleChange}
                                         />
+                                    </div>
+                                    <div className="field-bill">
+                                        <label >Fecha de descuento</label>
+                                        <input type="date"
+                                            id="discountDate"
+                                            name="discountDate"
+                                            value={this.state.discountDate}
+                                            onChange={this.handleChange}
+                                        />
+
                                     </div>
                                 </div>
                                 <div className="field-bill">
@@ -189,16 +208,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
                                 </select>
 
                             </div>
-                            <div className="field-bill">
-                                <label >Fecha de descuento</label>
-                                <input type="date"
-                                    id="discountDate"
-                                    name="discountDate"
-                                    value={this.state.discountDate}
-                                    onChange={this.handleChange}
-                                />
 
-                            </div>
 
                             <div className="field-bill">
                                 <label >Concepto</label>

@@ -1,0 +1,24 @@
+.list-bills{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bill-item{
+    margin:  24px 16px  ;
+    padding: 24px 4em 24px 1em;
+    box-shadow: 0 0 24px rgba(0,0,0,.07);
+    border-radius: 6px;
+    width: 320px;
+    cursor: pointer;
+    & h1{
+        font-size: 24px;
+        font-weight: 600;
+        color: #4FDBD8;
+    }
+    & p{
+        margin-top: .5em;
+        font-size: 22px;
+        color: #444444;
+    }
+}
+

@@ -17,6 +17,7 @@
 
 .container-bills{
     display: block;
+    margin-top: 1em !important;
 
 }   
 .field-bill{
@@ -46,10 +47,7 @@ textarea{
     border: 1px solid #bfbfbf;
 }
 
-.first-group{
 
-   
-}
 
 .first-group .group-field{
     display: flex;
@@ -57,3 +55,36 @@ textarea{
     
 }
 
+
+
+.recibos-container .header-bill-view{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 4em;
+    align-items: center;
+}
+
+.recibos-container .header-bill-view{
+
+    h2{
+        font-size: 28px;
+        font-weight: 600;
+        color: #121212;
+    }
+    p{
+        margin-top: .5em;
+        font-size: 22px;
+        color: #666666;
+    }
+    a{
+        padding: 24px 12px;
+        background: #4FDBD8;
+        color: #ffffff;
+        width: 200px;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: 0 12px 24px #4FDBD844;
+        text-align: center;
+    }
+}
