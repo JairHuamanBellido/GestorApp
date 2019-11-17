@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, Fragment } from "react";
 
 
-import userService from "../../src/services/user-service";
+import userService from "../src/services/user-service";
 import Link from "next/link";
 
 
-import './Register.scss'
+
 // Sate
 type UserRegister = {
     ruc: string,
@@ -67,7 +67,7 @@ export default class Register extends React.Component<{}, UserRegister> {
                     <div className="header">
                         <div className="log">
                             <Link href="/login">
-                                <img src="/assets/logo-white.png" width="96" height="96" alt="" />
+                                <img src="/static/logo-white.png" width="96" height="96" alt="" />
                             </Link>
                         </div>
                         <div className="title">
@@ -262,7 +262,122 @@ export default class Register extends React.Component<{}, UserRegister> {
                     </div>
            
                 </div>
+                <style jsx global>{`
+  
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
 
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito Sans', sans-serif;
+  
+  }
+  body{
+      
+      margin:0;
+  }
+  
+  ::placeholder{
+      color: rgba(255,255,255,.3) !important;
+  }
+  
+  .register-container{
+      padding: 24px;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(45deg,#5067DB,#1C38BF);
+  }
+  .register-container .header > div{
+      width: 50%;
+  }
+  .register-container .header {
+      display: flex;
+      align-items: center;
+      position: relative;
+  }
+  
+  .register-container .form-register{
+      width: 50%;
+      margin: 0 auto;
+  }
+  .register-container .field{
+      display: flex;
+      flex-direction: column;
+      margin: 1em;
+      position:relative;
+      
+  }
+  .register-container .field label{
+      margin-bottom: .5em;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+  }
+  .register-container h1{
+      text-align:left;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  .register-container .form-register .field-group 
+  {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .register-container .field input{
+      width: 360px;
+      padding: 12px 18px;
+      color: #ffffff;
+      background: rgba(0,0,0,.01);
+      border-radius: 4px;
+      font-size: 18px;
+      border: 1px solid rgba(255,255,255,.2);
+      //border: 1px solid #ff4476;
+  }
+  
+  
+  .register-container .field input:focus{
+      outline: none;
+      border: 1px solid #34a3ff;
+  }
+  
+  .register-container button{
+      background: #5067DB;
+      color: #ffffff;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 5px;
+      border: none;
+      font-size: 18px;
+      font-weight: 600;
+      width: 400px;
+  }
+  
+  .register-container .submit-register{
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+  }
+
+  .ruc-input{
+    padding-left: 48px !important;
+}
+
+.field p{
+    position: absolute;
+    top: 52%;
+    left: 5%;
+    color: #ffffff !important;
+}
+
+      `}</style>
 
             </Fragment>
         )

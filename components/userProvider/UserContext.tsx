@@ -60,7 +60,7 @@ export const totalAmmout = () => {
 
 
  export const findBillById =  (id: string) => {
-
+    console.log("Buscando a la boleta con id: " + id);
     return currentUser.bills.find(bill=>bill._id === id);
         
         

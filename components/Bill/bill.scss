@@ -20,17 +20,25 @@
     padding: 24px 4em 24px 1em;
     box-shadow: 0 0 24px rgba(0,0,0,.07);
     border-radius: 6px;
-    width: 320px;
+    width: fit-content;
     cursor: pointer;
-    & h1{
-        font-size: 24px;
-        font-weight: 600;
-        color: #4FDBD8;
-    }
-    & p{
-        margin-top: .5em;
-        font-size: 22px;
-        color: #444444;
-    }
+
 }
 
+.bill-item h1{
+    font-size: 24px;
+    font-weight: 600;
+    color: #4FDBD8;  
+}
+.bill-item p{
+    margin-top: .5em;
+    font-size: 22px;
+    color: #444444;
+}
+.bill-item .title{
+    display: flex;
+    align-items: center;
+}
+.bill-item .title img{
+    margin-left: 1em;
+}

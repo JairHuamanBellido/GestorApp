@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
-import userService from "../../../src/services/user-service";
-import billService from "../../../src/services/bill-service";
-import Layout from "../../../components/layout/Layout";
-import sampleAppContext, { UserContextProvider, findCompanyByRuc } from "../../../components/userProvider/UserContext";
+import userService from "../src/services/user-service";
+import billService from "../src/services/bill-service";
+import Layout from "../components/layout/Layout";
+import sampleAppContext, { UserContextProvider, findCompanyByRuc } from "../components/userProvider/UserContext";
 import Route from 'next/router'
-import "./nuevaboleta.scss";
-import ModalCompany from "../../../components/companyModal/CompanyModal";
+
+import ModalCompany from "../components/companyModal/CompanyModal";
 
 const DICCIONARY_NOMINAL = {
 
@@ -35,7 +35,8 @@ type BillDto = {
     districtCompany: string,
     typeTax: string,
     valueP: string,
-    isModalOpen: boolean
+    isModalOpen: boolean,
+    avatarIcon: string
 }
 
 
@@ -58,7 +59,8 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
         districtCompany: "",
         typeTax: "Efectiva",
         valueP: undefined,
-        isModalOpen: null
+        isModalOpen: false,
+        avatarIcon: null
     }
 
 
@@ -92,7 +94,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
 
 
 
-            Route.push('/home/recibos');
+            Route.push('/recibos');
         })
 
     }
@@ -107,7 +109,14 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
 
     companyExist = () => {
         this.setState({ isModalOpen: false })
-        this.setState({ companyRuc: sampleAppContext.companies[0].ruc.slice(2,9) })
+        this.setState({ companyRuc: sampleAppContext.companies[0].ruc.slice(2, 9) })
+    }
+
+
+    changeIcon = (iconText: string) => {
+        console.log("Cambiando icion");
+        console.log(iconText);
+        this.setState({ avatarIcon: iconText });
     }
     render() {
         return (
@@ -182,14 +191,28 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
                                         handleChange={this.handleChange}
                                         open={this.state.isModalOpen}
                                         closeModal={this.closeModal}
+                                        avatarIcon={this.state.avatarIcon}
+                                        changeIcon={this.changeIcon}
 
                                     /> : this.state.isModalOpen === false ?
                                         <select name="companyRuc" id="companyRuc" onChange={this.handleChange} value={this.state.companyRuc}>
                                             {sampleAppContext.companies.map((company, index) => (
-                                                <option key={index} value={company.ruc.slice(2,11)}> {company.name} </option>
+
+                                                <option key={index} value={company.ruc.slice(2, 11)}>
+
+                                                    {company.name}
+
+                                                </option>
+
+
                                             ))}
                                         </select> :
-                                        null
+                                        <div className="company-selected">
+                                            <img width="32" src={`/static/${this.state.avatarIcon}.svg`} alt="" />
+                                            <h2>{this.state.nameCompany}</h2>
+                                            <button onClick={this.openModal}>Editar</button>
+                                        </div>
+
                                 }
 
                             </div>
@@ -263,7 +286,187 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
                                 <button className="btn" onClick={this.submit}>Agregar recibo</button>
                             </div>
                         </div>
+                        <style jsx>{`
 
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+
+.nuevaboleta-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-bills{
+    display: block;
+    margin-top: 1em !important;
+
+}   
+.field-bill{
+    display: flex;
+    flex-direction: column;
+    margin: 0 3em 1em 0;
+}
+label{
+    font-size: 22px;
+    font-weight: 600;
+    color: #272727;
+}
+input,select{
+    width: 250px;
+    font-size: 20px;
+    color: #565656;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 12px 24px;
+    border: 1px solid #bfbfbf;
+}
+
+textarea{
+    width: 500px;
+    height: 300px;
+    border-radius: 4px;
+    border: 1px solid #bfbfbf;
+    font-size: 18px;
+    padding: 16px;
+    color: #444444;
+
+}
+
+
+
+.first-group .group-field{
+    display: flex;
+
+    
+}
+
+.recibos-container{width: 100%;}
+
+.recibos-container .header-bill-view{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 4em;
+    align-items: center;
+}
+
+
+
+.recibos-container .header-bill-view h2{
+    font-size: 28px;
+    font-weight: 600;
+    color: #121212;
+}
+.recibos-container .header-bill-view p{
+    margin-top: .5em;
+    font-size: 22px;
+    color: #666666;
+}
+.recibos-container .header-bill-view a{
+    padding: 24px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 200px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0 2em 0;
+}
+.btn-group button{
+    padding: 24px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.group-btn-company{
+    display: flex;
+    margin: 1em 0;
+}
+.group-btn-company .newcompany{
+    padding: 12px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+
+
+.group-btn-company > button{
+    margin:  0  1em;
+}
+
+.group-btn-company .companyExist{
+    padding: 12px 12px;
+    background: #5067DB;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #5067DB44;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.decision{
+    margin: 1em 0;
+}
+
+
+.company-selected{
+    width: fit-content;
+    padding: 12px 24px;
+    border-radius: 6px;
+    display: flex;
+    border: 1px solid #5067DB;
+}
+
+.company-selected h2 {
+    margin: 0 1em;
+}
+.company-selected button{
+    background: none;
+    color: #5067DB;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+        }
+      `}</style>
                     </Layout>
                 </UserContextProvider>
             </Fragment>

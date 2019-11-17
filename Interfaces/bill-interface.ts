@@ -20,4 +20,5 @@ export interface Bill {
   readonly taxPeriod: string;
   readonly company:Company;
   readonly tcea:string;
+  readonly avatarIcon:string;
 }

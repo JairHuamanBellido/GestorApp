@@ -25,30 +25,33 @@ header nav a {
     font-weight: 600;
 }
 
-header nav{
-    & .nav-item{
-        cursor: pointer;
-        opacity: .3;
-        display: flex;
-        align-items: center;
-        margin: 1em 0;
-        transition: all .2s ease-in;
-        & img{
-            margin-right: 12px;
-        }
-
-        & #home-link{
-            color: #5067DB;
-        }
-        & #recibos-link{
-            color: #4FDBD8;
-        }
-        & #empresa-link{
-            color: #681DFF;
-        }
-
-        &:hover{
-            opacity: 1;
-        }
-    }
+header nav .nav-item{
+    
+    cursor: pointer;
+    opacity: .3;
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+    transition: all .2s ease-in;
+   
 }
+
+header nav .nav-item:hover{
+    opacity: 1;
+}
+header nav .nav-item img{
+    margin-right: 12px;
+}
+#home-link{
+    color: #5067DB;
+
+}
+#recibos-link{
+    color: #4FDBD8;
+
+}
+#empresa-link{
+    color: #681DFF;
+
+}
+

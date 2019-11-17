@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { UserContextConsume } from "../userProvider/UserContext";
 import Bill from "./Bill";
 
-import "./bill.scss"
+
 
 
 export default class Bills extends React.Component {
@@ -16,9 +16,9 @@ export default class Bills extends React.Component {
                         {user => user && (
 
                             user.bills.map((bill, index) => (
-                                
-                                    <Bill key={index} id={bill._id} companyName={bill.company.name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
-                               
+
+                                <Bill key={index} avatarIcon={bill.avatarIcon} id={bill._id} companyName={bill.company.name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
+
                             ))
 
                         )}
@@ -26,7 +26,26 @@ export default class Bills extends React.Component {
                     </UserContextConsume>
 
                 </div>
+                <style jsx global>{`
 
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+
+.list-bills{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+      `}</style>
 
             </Fragment>
         )

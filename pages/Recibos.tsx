@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
-import Layout from "../../../components/layout/Layout";
-import sampleAppContext, { UserContextProvider } from "../../../components/userProvider/UserContext";
-import Bills from "../../../components/Bill/Bills";
+import Layout from "../components/layout/Layout";
+import sampleAppContext, { UserContextProvider } from "../components/userProvider/UserContext";
+import Bills from "../components/Bill/Bills";
 import Link from "next/link";
-import "../nuevaboleta/nuevaboleta.scss"
-import userService from "../../../src/services/user-service";
-import currentUser from "../../../components/userProvider/UserContext";
+
+import userService from "../src/services/user-service";
+import currentUser from "../components/userProvider/UserContext";
 export default class RecibosPorHonorarios extends React.Component {
 
     state = {
@@ -36,8 +36,8 @@ export default class RecibosPorHonorarios extends React.Component {
                                         <h2>Recibos por honorarios</h2>
                                         <p>Actualmente has emitido {currentUser.bills.length} boletas</p>
                                     </div>
-                                    <Link href="/home/nuevaBoleta">
-                                        <a> Nuevo</a>
+                                    <Link href="/nuevaboleta">
+                                        <a style={{fontWeight:600}}> Nuevo Recibo</a>
                                     </Link>
                                 </div>
                                 <div className="container-bills">
@@ -46,7 +46,35 @@ export default class RecibosPorHonorarios extends React.Component {
                                 </div>
 
                             </div>
+                            <style jsx>{`
+ .recibos-container{
+    display: flex;
+    flex-direction: column;
+}
+.header-bill-view{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 0 48px;
+}
+.header-bill-view a{
+    padding: 12px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 240px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+      `}</style>
                         </Layout>
+                        
                     </UserContextProvider>
                 </Fragment>
             )

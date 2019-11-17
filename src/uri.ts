@@ -1,1 +1,1 @@
-export const uri = `http://localhost:3005`;
+export const uri = `https://gestorappbackend.huamanbellidoj.now.sh`;
