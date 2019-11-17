@@ -1,8 +1,11 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, Fragment } from "react";
 
-import "./Register.scss";
+
 import userService from "../../src/services/user-service";
 import Link from "next/link";
+
+
+import './Register.scss'
 // Sate
 type UserRegister = {
     ruc: string,
@@ -36,7 +39,7 @@ export default class Register extends React.Component<{}, UserRegister> {
 
     submitForm = async () => {
         await userService.register(this.state);
-        
+
 
 
 
@@ -58,205 +61,210 @@ export default class Register extends React.Component<{}, UserRegister> {
     }
     render() {
         return (
+            <Fragment>
+                <div className="register-container">
 
-            <div className="register-container">
+                    <div className="header">
+                        <div className="log">
+                            <Link href="/login">
+                                <img src="/assets/logo-white.png" width="96" height="96" alt="" />
+                            </Link>
+                        </div>
+                        <div className="title">
+                            <h1>Registro</h1>
 
-                <div className="header">
-                    <div className="log">
-                        <Link href="/login">
-                        <img src="/assets/logo-white.png" width="96" height="96" alt="" />
-                        </Link>
+                        </div>
                     </div>
-                    <div className="title">
-                        <h1>Registro</h1>
+
+                    <div className="form-register">
+
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Nombres</label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={this.state.name}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese sus nombres"
+
+                                />
+
+                            </div>
+                            <div className="field">
+                                <label>Apellidos</label>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    value={this.state.lastName}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese sus apellidos"
+
+                                />
+
+                            </div>
+
+
+                        </div>
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Ruc</label>
+                                <input
+                                    maxLength={9}
+                                    className="ruc-input"
+                                    type="text"
+                                    id="RUC"
+                                    name="ruc"
+                                    value={this.state.ruc}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su ruc"
+                                    onFocus={this.uner}
+                                />
+                                <p>20</p>
+
+                            </div>
+
+                            <div className="field">
+                                <label>Razon Social</label>
+
+                                <input
+                                    type="text"
+                                    id="companyName"
+                                    name="companyName"
+                                    value={this.state.companyName}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese sus apellidos"
+
+                                />
+
+                            </div>
+                        </div>
+
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Edad</label>
+
+                                <input
+                                    type="number"
+                                    id="age"
+                                    name="age"
+                                    value={this.state.age}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su edad"
+
+                                />
+
+                            </div>
+                            <div className="field">
+                                <label>Email</label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su email"
+
+                                />
+
+                            </div>
+                        </div>
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Usuario</label>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su usuario"
+
+                                />
+
+                            </div>
+                            <div className="field">
+                                <label>Contraseña</label>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su contraseña"
+
+                                />
+
+                            </div>
+
+                        </div>
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Numero de celular</label>
+
+                                <input
+                                    type="number"
+                                    id="phone"
+                                    name="phone"
+                                    value={this.state.phone}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su numero de celular"
+
+                                />
+
+                            </div>
+
+                            <div className="field">
+                                <label>Dirección</label>
+
+                                <input
+                                    type="text"
+                                    id="address"
+                                    name="address"
+                                    value={this.state.address}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su direccion"
+
+                                />
+
+                            </div>
+
+
+                        </div>
+                        <div className="field-group">
+                            <div className="field">
+                                <label>Distrito</label>
+
+                                <input
+                                    type="text"
+                                    id="district"
+                                    name="district"
+                                    value={this.state.district}
+                                    onChange={this.handleChange}
+                                    placeholder="Ingrese su distrito"
+
+                                />
+
+                            </div>
+                        </div>
+                        <div className="submit-register">
+                            <button onClick={this.submitForm}>Registrar</button>
+                        </div>
+
 
                     </div>
+           
                 </div>
 
-                <div className="form-register">
 
-                    <div className="field-group">
-                        <div className="field">
-                            <label>Nombres</label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={this.state.name}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese sus nombres"
-
-                            />
-
-                        </div>
-                        <div className="field">
-                            <label>Apellidos</label>
-
-                            <input
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                value={this.state.lastName}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese sus apellidos"
-
-                            />
-
-                        </div>
-
-
-                    </div>
-                    <div className="field-group">
-                        <div className="field">
-                            <label>Ruc</label>
-                            <input
-                                type="text"
-                                id="RUC"
-                                name="ruc"
-                                value={this.state.ruc}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su ruc"
-                                onFocus={this.uner}
-                            />
-
-                        </div>
-
-                        <div className="field">
-                            <label>Razon Social</label>
-
-                            <input
-                                type="text"
-                                id="companyName"
-                                name="companyName"
-                                value={this.state.companyName}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese sus apellidos"
-
-                            />
-
-                        </div>
-                    </div>
-
-                    <div className="field-group">
-                        <div className="field">
-                            <label>Edad</label>
-
-                            <input
-                                type="number"
-                                id="age"
-                                name="age"
-                                value={this.state.age}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su edad"
-
-                            />
-
-                        </div>
-                        <div className="field">
-                            <label>Email</label>
-
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su email"
-
-                            />
-
-                        </div>
-                    </div>
-                    <div className="field-group">
-                        <div className="field">
-                            <label>Usuario</label>
-
-                            <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su usuario"
-
-                            />
-
-                        </div>
-                        <div className="field">
-                            <label>Contraseña</label>
-
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su contraseña"
-
-                            />
-
-                        </div>
-
-                    </div>
-                    <div className="field-group">
-                        <div className="field">
-                            <label>Numero de celular</label>
-
-                            <input
-                                type="number"
-                                id="phone"
-                                name="phone"
-                                value={this.state.phone}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su numero de celular"
-
-                            />
-
-                        </div>
-
-                        <div className="field">
-                            <label>Dirección</label>
-
-                            <input
-                                type="text"
-                                id="address"
-                                name="address"
-                                value={this.state.address}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su direccion"
-
-                            />
-
-                        </div>
-                       
-
-                    </div>
-                    <div className="field-group">
-                    <div className="field">
-                            <label>Distrito</label>
-
-                            <input
-                                type="text"
-                                id="district"
-                                name="district"
-                                value={this.state.district}
-                                onChange={this.handleChange}
-                                placeholder="Ingrese su distrito"
-
-                            />
-
-                        </div>
-                    </div>
-                    <div className="submit-register">
-                        <button onClick={this.submitForm}>Registrar</button>
-                    </div>
-
-
-                </div>
-            </div>
-
-
+            </Fragment>
         )
     }
 }

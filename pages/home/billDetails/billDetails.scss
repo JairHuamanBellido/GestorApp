@@ -1,0 +1,53 @@
+.layout-billdetails{
+    display: flex;
+    width: 100%;
+}
+
+.layout-billdetails  > div{
+    width: 40%;
+
+}
+
+
+
+.layout-billdetails .secondCol .header-col{
+    text-align: center;
+    margin-bottom: 2em;
+    
+}
+
+
+.firstCol p{
+    margin: .5em 0;
+}
+.firstCol h3{
+    opacity: .87;
+    margin-bottom: 2em;
+}
+
+.details-secondCol{
+    text-align: left;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.details-secondCol .div p{
+    margin: .5em;
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+}
+
+.details-secondCol .div p strong{
+    margin-left: 1em;
+}
+.details-secondCol .div .less{
+    color:  #ff4343;
+}
+
+.details-secondCol .div #TCEA{
+    margin-top: 2em;
+}

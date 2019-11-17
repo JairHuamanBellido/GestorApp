@@ -3,6 +3,9 @@ import { uri } from "../uri";
 import { updateBills, UserContextConsume } from "../../components/userProvider/UserContext";
 class BillService {
   create = async (bill: any) => {
+    
+    bill.companyRuc = "20"+bill.companyRuc;
+    console.log(bill.companyRuc);
     return await axios({
       method: "POST",
       headers: { "Content-type": "application/json" },

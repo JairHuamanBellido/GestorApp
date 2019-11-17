@@ -1,6 +1,7 @@
 import { Company } from "./company-interface";
 
 export interface Bill {
+  readonly _id:string;
   readonly userRuc: string;
   readonly companyRuc: string;
   readonly releaseDate: string;
@@ -18,4 +19,5 @@ export interface Bill {
   readonly discount: number;
   readonly taxPeriod: string;
   readonly company:Company;
+  readonly tcea:string;
 }

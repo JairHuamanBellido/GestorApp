@@ -11,47 +11,64 @@ let currentUser: User = {
     username: '',
     password: '',
     age: undefined,
-    
+
     email: '',
     phone: undefined,
     address: '',
     district: '',
-    companyName:'',
+    companyName: '',
 
-    bills : [],
-    companies:[],
+    bills: [],
+    companies: [],
     totalGain: undefined
 };
 
-export const updateUser = (user:User) => {
+export const updateUser = (user: User) => {
     console.log("Actualizando al usuario");
-    console.log(user);
-    currentUser.name  =user.name;
+    currentUser.ruc = user.ruc;
+    currentUser.name = user.name;
     currentUser.lastName = user.lastName;
-    currentUser.ruc =  user.ruc;
-    currentUser.bills=  user.bills;
-    currentUser.companies  = user.companies;
-    currentUser.totalGain =  totalAmmout();
-    console.log(currentUser.bills[0].company);
+    currentUser.username = user.username;
+    currentUser.age = user.age;
+    currentUser.email = user.email;
+    currentUser.phone = user.phone;
+    currentUser.address = user.address;
+    currentUser.district = user.district;
+    currentUser.companyName = user.companyName;
+    currentUser.bills = user.bills;
+    currentUser.companies = user.companies;
+    currentUser.totalGain = totalAmmout();
 
-    
+
+
 }
 
 
-export const updateBills = (bill:Bill) =>{
+export const updateBills = (bill: Bill) => {
     currentUser.bills.push(bill);
-    
+
 }
 
-export const totalAmmout =  ()=>{
-    
+export const totalAmmout = () => {
+
     let a = 0;
-    currentUser.bills.forEach ((b)=>{
+    currentUser.bills.forEach((b) => {
         a = a + b.totalAmmountFinal
     })
     return parseFloat(a.toFixed(2));
 }
 
+
+ export const findBillById =  (id: string) => {
+
+    return currentUser.bills.find(bill=>bill._id === id);
+        
+        
+}
+
+export const findCompanyByRuc = (ruc:string)=>{
+    return currentUser.companies.find(company=>company.ruc === ruc);
+}
 
 export default currentUser;
 

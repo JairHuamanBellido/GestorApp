@@ -39,6 +39,7 @@ class UserService {
   };
 
   register = async (user: any) => {
+    user.ruc = "20" + user.ruc;
     return await axios({
       method: "POST",
       headers: { "Content-Type": "application/json" },

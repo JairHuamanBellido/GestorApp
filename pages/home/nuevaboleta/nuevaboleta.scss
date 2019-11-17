@@ -41,10 +41,14 @@ input,select{
 }
 
 textarea{
-    width: 1000px;
-    height: 400px;
+    width: 500px;
+    height: 300px;
     border-radius: 4px;
     border: 1px solid #bfbfbf;
+    font-size: 18px;
+    padding: 16px;
+    color: #444444;
+
 }
 
 
@@ -55,7 +59,7 @@ textarea{
     
 }
 
-
+.recibos-container{width: 100%;}
 
 .recibos-container .header-bill-view{
     width: 100%;
@@ -87,4 +91,68 @@ textarea{
         box-shadow: 0 12px 24px #4FDBD844;
         text-align: center;
     }
+}
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0 2em 0;
+}
+.btn-group button{
+    padding: 24px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.group-btn-company{
+    display: flex;
+    margin: 1em 0;
+}
+.group-btn-company .newcompany{
+    padding: 12px 12px;
+    background: #4FDBD8;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #4FDBD844;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+
+
+.group-btn-company > button{
+    margin:  0  1em;
+}
+
+.group-btn-company .companyExist{
+    padding: 12px 12px;
+    background: #5067DB;
+    color: #ffffff;
+    width: 360px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px #5067DB44;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.decision{
+    margin: 1em 0;
 }
