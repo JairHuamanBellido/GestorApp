@@ -19,7 +19,8 @@ type Props = {
     closeModal: any,
     open: boolean,
     avatarIcon: string,
-    changeIcon: any
+    changeIcon: any,
+    companyExist:any
 }
 export default class ModalCompany extends React.Component<Props, {}>{
 
@@ -136,14 +137,40 @@ export default class ModalCompany extends React.Component<Props, {}>{
                                     </div>
                                 </div>
                                 <div className="submitForm">
-                                    <button>Agregar</button>
-                                    <button onClick={this.props.closeModal}>Cerrar</button>
+                                    <button className="btn-addCompany" onClick={this.props.closeModal}>Agregar</button>
+                                    <button className="btn-closeModal" onClick={this.props.companyExist}>Cerrar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <style jsx global>{`
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+.submitForm{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+.btn-closeModal{
+    background:none;
+    border:none;
+    color: #666666;
+    font-weight:600;
+    font-size : 16px;
+    cursor:pointer;
+
+}
 .containerModal{
     position: fixed;
     top: 0;
@@ -155,11 +182,24 @@ export default class ModalCompany extends React.Component<Props, {}>{
     justify-content: center;
     align-items: center;
 }
-
+.btn-addCompany{
+    
+    background: #5067DB;
+    color:#ffffff;
+    font-weight:600;
+    font-size: 18px;
+    border: none;
+    padding: 16px 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 250px;
+    margin:  1em;
+}
 .list-icons{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:1em 0;
 }
 
 .list-icons img{
@@ -174,7 +214,7 @@ export default class ModalCompany extends React.Component<Props, {}>{
 .containerModal .card-modal{
     padding: 24px;
     border-radius: 6px;
-    width: 80%;
+    width: 50%;
     height: 900px;
     display: flex;
     flex-direction: column;
@@ -209,7 +249,7 @@ export default class ModalCompany extends React.Component<Props, {}>{
     margin-bottom: .75em;
 }
 .form .field-group .field input{
-    width: 360px !important;
+    width: 300px !important;
     color: #222222;
     padding: 12px 18px;
     border-radius: 4px;
@@ -223,7 +263,7 @@ export default class ModalCompany extends React.Component<Props, {}>{
 
 .field p{
     position: absolute;
-    top: 35%;
+    top: 58%;
     left: 4%;
     color: #222222 !important;
 }

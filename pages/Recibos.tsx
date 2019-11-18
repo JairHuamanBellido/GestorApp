@@ -50,12 +50,14 @@ export default class RecibosPorHonorarios extends React.Component {
  .recibos-container{
     display: flex;
     flex-direction: column;
+    width:100%;
 }
 .header-bill-view{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding: 0 48px;
+    width:100%;
 }
 .header-bill-view a{
     padding: 12px 12px;

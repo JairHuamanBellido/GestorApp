@@ -136,6 +136,10 @@ export default class Login extends React.Component<{}, UserCredentials> {
 
 .login-container{
     padding: 2em;
+    width: 100vw;
+    height: 100vh;
+    background: url(/static/LoginWallpaper.png);
+    background-position: center center;
 }
 .login-container .field-login{
     display: flex;
