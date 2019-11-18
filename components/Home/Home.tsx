@@ -9,7 +9,7 @@ export default class HomeView extends React.Component {
         load:false,
         totalGain : 0
     }
-
+    
     async componentDidMount(){
         let username =  localStorage.getItem("username");
         let password =  localStorage.getItem("password");

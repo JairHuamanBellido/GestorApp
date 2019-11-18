@@ -17,7 +17,7 @@ export default class Bills extends React.Component {
 
                             user.bills.map((bill, index) => (
 
-                                <Bill key={index} avatarIcon={bill.avatarIcon} id={bill._id} companyName={bill.company.name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
+                                <Bill key={index} avatarIcon={bill.company.avatarIcon} id={bill._id} companyName={bill.company.name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
 
                             ))
 

@@ -66,6 +66,11 @@ export const totalAmmout = () => {
         
 }
 
+export const getLastBills = ()=>{
+    return currentUser.bills.slice(-5);
+}
+
+
 export const findCompanyByRuc = (ruc:string)=>{
     return currentUser.companies.find(company=>company.ruc === ruc);
 }

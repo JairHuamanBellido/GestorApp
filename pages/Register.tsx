@@ -77,181 +77,182 @@ export default class Register extends React.Component<{}, UserRegister> {
                     </div>
 
                     <div className="form-register">
+                        <div className="form-camp">
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Nombres</label>
 
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Nombres</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={this.state.name}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese sus nombres"
 
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={this.state.name}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese sus nombres"
+                                    />
 
-                                />
+                                </div>
+                                <div className="field">
+                                    <label>Apellidos</label>
+
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        value={this.state.lastName}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese sus apellidos"
+
+                                    />
+
+                                </div>
+
 
                             </div>
-                            <div className="field">
-                                <label>Apellidos</label>
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Ruc</label>
+                                    <input
+                                        maxLength={9}
+                                        className="ruc-input"
+                                        type="text"
+                                        id="RUC"
+                                        name="ruc"
+                                        value={this.state.ruc}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su ruc"
+                                        onFocus={this.uner}
+                                    />
+                                    <p>20</p>
 
-                                <input
-                                    type="text"
-                                    id="lastName"
-                                    name="lastName"
-                                    value={this.state.lastName}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese sus apellidos"
+                                </div>
 
-                                />
+                                <div className="field">
+                                    <label>Razon Social</label>
 
+                                    <input
+                                        type="text"
+                                        id="companyName"
+                                        name="companyName"
+                                        value={this.state.companyName}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese sus apellidos"
+
+                                    />
+
+                                </div>
                             </div>
 
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Edad</label>
 
-                        </div>
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Ruc</label>
-                                <input
-                                    maxLength={9}
-                                    className="ruc-input"
-                                    type="text"
-                                    id="RUC"
-                                    name="ruc"
-                                    value={this.state.ruc}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su ruc"
-                                    onFocus={this.uner}
-                                />
-                                <p>20</p>
+                                    <input
+                                        type="number"
+                                        id="age"
+                                        name="age"
+                                        value={this.state.age}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su edad"
+
+                                    />
+
+                                </div>
+                                <div className="field">
+                                    <label>Email</label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={this.state.email}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su email"
+
+                                    />
+
+                                </div>
+                            </div>
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Usuario</label>
+
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        value={this.state.username}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su usuario"
+
+                                    />
+
+                                </div>
+                                <div className="field">
+                                    <label>Contraseña</label>
+
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        value={this.state.password}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su contraseña"
+
+                                    />
+
+                                </div>
 
                             </div>
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Numero de celular</label>
 
-                            <div className="field">
-                                <label>Razon Social</label>
+                                    <input
+                                        type="number"
+                                        id="phone"
+                                        name="phone"
+                                        value={this.state.phone}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su numero de celular"
 
-                                <input
-                                    type="text"
-                                    id="companyName"
-                                    name="companyName"
-                                    value={this.state.companyName}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese sus apellidos"
+                                    />
 
-                                />
+                                </div>
+
+                                <div className="field">
+                                    <label>Dirección</label>
+
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        value={this.state.address}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su direccion"
+
+                                    />
+
+                                </div>
+
 
                             </div>
-                        </div>
+                            <div className="field-group">
+                                <div className="field">
+                                    <label>Distrito</label>
 
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Edad</label>
+                                    <input
+                                        type="text"
+                                        id="district"
+                                        name="district"
+                                        value={this.state.district}
+                                        onChange={this.handleChange}
+                                        placeholder="Ingrese su distrito"
 
-                                <input
-                                    type="number"
-                                    id="age"
-                                    name="age"
-                                    value={this.state.age}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su edad"
+                                    />
 
-                                />
-
-                            </div>
-                            <div className="field">
-                                <label>Email</label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={this.state.email}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su email"
-
-                                />
-
-                            </div>
-                        </div>
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Usuario</label>
-
-                                <input
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su usuario"
-
-                                />
-
-                            </div>
-                            <div className="field">
-                                <label>Contraseña</label>
-
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su contraseña"
-
-                                />
-
-                            </div>
-
-                        </div>
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Numero de celular</label>
-
-                                <input
-                                    type="number"
-                                    id="phone"
-                                    name="phone"
-                                    value={this.state.phone}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su numero de celular"
-
-                                />
-
-                            </div>
-
-                            <div className="field">
-                                <label>Dirección</label>
-
-                                <input
-                                    type="text"
-                                    id="address"
-                                    name="address"
-                                    value={this.state.address}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su direccion"
-
-                                />
-
-                            </div>
-
-
-                        </div>
-                        <div className="field-group">
-                            <div className="field">
-                                <label>Distrito</label>
-
-                                <input
-                                    type="text"
-                                    id="district"
-                                    name="district"
-                                    value={this.state.district}
-                                    onChange={this.handleChange}
-                                    placeholder="Ingrese su distrito"
-
-                                />
-
+                                </div>
                             </div>
                         </div>
                         <div className="submit-register">
@@ -260,7 +261,7 @@ export default class Register extends React.Component<{}, UserRegister> {
 
 
                     </div>
-           
+
                 </div>
                 <style jsx global>{`
   
@@ -280,15 +281,20 @@ export default class Register extends React.Component<{}, UserRegister> {
   }
   
   ::placeholder{
-      color: rgba(255,255,255,.3) !important;
+      color: rgba(0,0,0,.5) !important;
   }
-  
+  .form-camp{
+      overflow:auto;
+      height:700px;
+  }
   .register-container{
       padding: 24px;
       width: 100%;
       height: 100vh;
       overflow: hidden;
-      background: linear-gradient(45deg,#5067DB,#1C38BF);
+      background: url('/static/RegisterBG.png');
+      background-size:container;
+      background-position:center center;
   }
   .register-container .header > div{
       width: 50%;
@@ -300,8 +306,8 @@ export default class Register extends React.Component<{}, UserRegister> {
   }
   
   .register-container .form-register{
-      width: 50%;
-      margin: 0 auto;
+      width: 500px;
+      margin: 0 0 0 60%;
   }
   .register-container .field{
       display: flex;
@@ -314,31 +320,31 @@ export default class Register extends React.Component<{}, UserRegister> {
       margin-bottom: .5em;
       font-size: 16px;
       font-weight: 600;
-      color: #ffffff;
+      color: #222222;
   }
   .register-container h1{
       text-align:left;
-      color: white;
+      color: #121212;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 65%;
+      transform: translate(-50%, -65%);
   }
   
   .register-container .form-register .field-group 
   {
       display: flex;
-      justify-content: center;
+        flex-direction:column;
   }
   
   .register-container .field input{
       width: 360px;
       padding: 12px 18px;
-      color: #ffffff;
-      background: rgba(0,0,0,.01);
+      color: #333333;
+      background: rgba(0,0,0,.02);
       border-radius: 4px;
       font-size: 18px;
-      border: 1px solid rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.3);
       //border: 1px solid #ff4476;
   }
   
@@ -373,8 +379,8 @@ export default class Register extends React.Component<{}, UserRegister> {
 .field p{
     position: absolute;
     top: 52%;
-    left: 5%;
-    color: #ffffff !important;
+    left: 4%;
+    color: #212121 !important;
 }
 
       `}</style>
