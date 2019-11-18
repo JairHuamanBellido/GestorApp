@@ -52,7 +52,7 @@ export default class NuevaRecibo extends React.Component<{}, BillDto>{
         tax: undefined,
         discountDate: undefined,
         concept: "",
-        tep: "",
+        tep: "Diario",
         nameCompany: "",
         addressCompany: "",
         districtCompany: "",

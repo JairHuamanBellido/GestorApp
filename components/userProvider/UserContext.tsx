@@ -81,6 +81,7 @@ export const getLastBills = ()=>{
 
 
 export const findCompanyByRuc = (ruc:string)=>{
+    console.log(currentUser.companies.find(company=>company.ruc === ruc));
     return currentUser.companies.find(company=>company.ruc === ruc);
 }
 

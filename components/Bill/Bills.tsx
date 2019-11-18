@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { UserContextConsume } from "../userProvider/UserContext";
+import { UserContextConsume, findCompanyByRuc } from "../userProvider/UserContext";
 import Bill from "./Bill";
 
 
@@ -16,9 +16,9 @@ export default class Bills extends React.Component {
                         {user => user && (
 
                             user.bills.map((bill, index) => (
-
-                                <Bill key={index} avatarIcon={bill.company.avatarIcon} id={bill._id} companyName={bill.company.name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
-
+                                <Fragment>
+                                    <Bill key={index} avatarIcon={findCompanyByRuc(bill.companyRuc).avatarIcon} id={bill._id} companyName={findCompanyByRuc(bill.companyRuc).name} companyRuc={bill.companyRuc} totalAmmountFinal={bill.totalAmmountFinal} />
+                                </Fragment>
                             ))
 
                         )}

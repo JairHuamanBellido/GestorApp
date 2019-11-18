@@ -61,7 +61,7 @@ export default class RecibosPorHonorarios extends React.Component {
 }
 .header-bill-view a{
     padding: 12px 12px;
-    background: #4FDBD8;
+    background: #48bfbc;
     color: #ffffff;
     width: 240px;
     border-radius: 6px;

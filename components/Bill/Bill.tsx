@@ -54,7 +54,7 @@ export default class Bill extends React.Component<BillProp, {}>{
 .bill-item h1{
     font-size: 24px;
     font-weight: 600;
-    color: #4FDBD8;  
+    color: #48bfbc;  
 }
 .bill-item p{
     margin-top: .5em;
